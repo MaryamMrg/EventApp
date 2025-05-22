@@ -10,5 +10,5 @@ import java.util.List;
 public interface EventMapper {
     Event toEntity(EventDTO dto);
     EventDTO toDTO(Event event);
-    List<EventDTO> toDTO(List<Event> events);
+    List<EventDTO> toDTOs(List<Event> events);
 }
