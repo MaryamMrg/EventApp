@@ -12,8 +12,8 @@ public class EventDTO {
     private Long id;
     private String title;
     private String description;
-    private Date date;
-
+    private String date;
+    private double price;
 
 
 }

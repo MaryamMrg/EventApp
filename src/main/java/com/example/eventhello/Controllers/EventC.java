@@ -2,6 +2,7 @@ package com.example.eventhello.Controllers;
 
 import com.example.eventhello.Dto.EventDTO;
 import com.example.eventhello.Services.EventS;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class EventC {
         this.eventS = eventS;
     }
 
-    @PostMapping
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public  EventDTO addEvent(@RequestBody EventDTO eventDTO) {
         return eventS.saveEvent(eventDTO);
     }

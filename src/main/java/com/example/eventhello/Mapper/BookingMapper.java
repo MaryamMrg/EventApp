@@ -11,7 +11,7 @@ import java.util.List;
 public interface BookingMapper {
     Booking toEntity(BookingDTO dto);
     BookingDTO toDto(Booking booking);
-    List<BookingDTO> toDto(List<Booking> bookings);
+    List<BookingDTO> toDtos(List<Booking> bookings);
 
 
 }
