@@ -1,28 +1,58 @@
 package com.example.eventhello.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-@Data
+
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Booking {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date bookingdate;
+    private String bookingdate;
     private String status;
 
-   @ManyToOne
-    private User user;
+    public Booking() {
+    }
 
-   @ManyToOne
-   private Event event;
+    public Booking(Long id, String bookingdate, String status) {
+        this.id = id;
+        this.bookingdate = bookingdate;
+        this.status = status;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getBookingdate() {
+        return bookingdate;
+    }
+
+    public void setBookingdate(String bookingdate) {
+        this.bookingdate = bookingdate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    //   @ManyToOne
+//    private User user;
+
+//   @ManyToOne
+//   private Event event;
 
 }

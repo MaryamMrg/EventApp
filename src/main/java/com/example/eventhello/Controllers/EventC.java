@@ -15,7 +15,7 @@ public class EventC {
         this.eventS = eventS;
     }
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping
     public  EventDTO addEvent(@RequestBody EventDTO eventDTO) {
         return eventS.saveEvent(eventDTO);
     }
@@ -28,6 +28,10 @@ public class EventC {
         return eventS.updateEvent(eventDTO);
 
 
+    }
+    @GetMapping("/getbytitle")
+    public  EventDTO getEventByTitle(@RequestParam String title){
+       return eventS.geteventByTitle(title);
     }
     @DeleteMapping("/{id}")
     public void deleteEvent(@PathVariable Long id) {

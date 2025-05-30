@@ -1,29 +1,37 @@
 package com.example.eventhello.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
 
-@Data
+
+
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
+
+
 
 
 public class Event {
-@Id @GeneratedValue(strategy = GenerationType.AUTO)
-private Long id ;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id ;
 
-private String title ;
-private String description ;
+    private String title ;
+    private String description ;
     private double price ;
     private String date;
+
+    public Event() {
+    }
+
+    public Event(Long id, String title, String description, double price, String date) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.date = date;
+    }
 
     public Long getId() {
         return id;
@@ -64,9 +72,4 @@ private String description ;
     public void setDate(String date) {
         this.date = date;
     }
-
-
-
-
-
 }
