@@ -1,28 +1,35 @@
 package com.example.eventhello.Controllers;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@Builder
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AuthenticationResponse {
-    private  String token;
+
+    @JsonProperty("token")
+    private String token;
+
 
     public AuthenticationResponse() {
     }
+
 
     public AuthenticationResponse(String token) {
         this.token = token;
     }
 
+
     public String getToken() {
         return token;
     }
 
+
     public void setToken(String token) {
         this.token = token;
+    }
+
+    @Override
+    public String toString() {
+        return "AuthenticationResponse{" +
+                "token='" + token + '\'' +
+                '}';
     }
 }

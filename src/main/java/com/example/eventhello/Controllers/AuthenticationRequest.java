@@ -1,47 +1,47 @@
 package com.example.eventhello.Controllers;
 
-import com.example.eventhello.entities.Role;
-import lombok.Builder;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Data
-@Builder
 public class AuthenticationRequest {
+
+    @JsonProperty("username")
     private String username;
 
-    public AuthenticationRequest(String username, String password, Role role) {
-        this.username = username;
-        this.password = password;
-        this.role = role;
-    }
+    @JsonProperty("password")
+    private String password;
 
     public AuthenticationRequest() {
     }
 
-    public String getUsername() {
-        return username;
+
+    public AuthenticationRequest(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
         return password;
     }
 
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
+    @Override
+    public String toString() {
+        return "AuthenticationRequest{" +
+                "username='" + username + '\'' +
+                ", password='[PROTECTED]'" +
+                '}';
     }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    private String password;
-    private Role role;
 }
